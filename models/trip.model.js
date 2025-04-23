@@ -4,22 +4,22 @@ const { LocationSchema } = require("./fleet.model");
 const tripSchema = new mongoose.Schema({
     from: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Fleet",
+        ref: "Fleet",
         required: true
     },
     to: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Delivery",
+        ref: "DeliveryJob",
         required: true
     },
     vehicleId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Vehicle",
+        ref: "Vehicle",
         required: true
     },
     driverId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"User",
+        ref: "User",
         required: true
     },
     estimatedDistance: {
@@ -42,10 +42,49 @@ const tripSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    wayPoints: [LocationSchema],
-    plannedRoute: [LocationSchema],
-    actualRoute: [LocationSchema],
-},{timestamps: true})
+    wayPoints: [{
+        location: {
+            type: LocationSchema,
+            required: true
+        },
+        distance: {
+            type: Number,
+            required: true
+        },
+        duration: {
+            type: String,
+            required: true
+        }
+    }],
+    plannedRoute: {
+        location: {
+            type: LocationSchema,
+            required: true
+        },
+        distance: {
+            type: Number,
+            required: true
+        },
+        duration: {
+            type: String,
+            required: true
+        }
+    },
+    actualRoute: {
+        location: {
+            type: LocationSchema,
+            required: true
+        },
+        distance: {
+            type: Number,
+            required: true
+        },
+        duration: {
+            type: String,
+            required: true
+        }
+    }
+}, { timestamps: true })
 
 const Trip = mongoose.model("Trip", tripSchema);
 

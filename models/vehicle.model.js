@@ -19,8 +19,14 @@ const vehicleSchema = new mongoose.Schema({
         required: true
     },
     capacity:{
-        type: Number,
-        required: true
+        weight: {
+            type: Number,
+            required: true
+        },
+        volume: {
+            type: Number,
+            required: true
+        }
     },
     status: {
         type: String,

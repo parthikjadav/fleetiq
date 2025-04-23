@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { ALERT_TYPES, ALERT_STATUS } = require("../constant");
+const { ALERT_STATUS, ALERT_SEVERITIES } = require("../constant");
 
 const alertSchema = new mongoose.Schema({
     userId: {
@@ -12,17 +12,13 @@ const alertSchema = new mongoose.Schema({
         ref: "Vehicle",
         required: true,
     },
+    deliveryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "DeliveryJob",
+    },
     dispatcherId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: true,
-    },
-    date: {
-        type: Date,
-        default: Date.now,
-    },
-    location: {
-        type: String,
         required: true,
     },
     status: {
@@ -40,8 +36,8 @@ const alertSchema = new mongoose.Schema({
     },
     severity: {
         type: String,
-        enum: [ALERT_TYPES.INFO,ALERT_TYPES.WARNING,ALERT_TYPES.CRITICAL],
-        default: ALERT_TYPES.INFO,
+        enum: [ALERT_SEVERITIES.LOW, ALERT_SEVERITIES.MEDIUM, ALERT_SEVERITIES.HIGH],
+        default: ALERT_SEVERITIES.LOW,
     }
 },{timestamps: true});
 

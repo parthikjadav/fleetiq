@@ -6,25 +6,31 @@ const ROLES = {
 };
 
 const VEHICLE_STATUS = {
-    ACTIVE: 'active',
-    RETIRED: 'retired',
-    MAINTENANCE: 'maintenance',
+  ACTIVE: 'active',
+  RETIRED: 'retired',
+  MAINTENANCE: 'maintenance',
 }
 
 const ALERT_STATUS = {
-    PENDING: 'pending',
-    IN_PROGRESS: 'in-progress',
-    RESOLVED: 'resolved',
+  PENDING: 'pending',
+  IN_PROGRESS: 'in-progress',
+  RESOLVED: 'resolved',
 }
 
-const VEHICLE_TYPES = ["van","truck","bike","car"]
+const VEHICLE_TYPES = [
+  "car",
+  "truck",
+  "boat",
+  "airplane",
+  "motorcycle",
+]
 
-const FUEL_TYPES = ["petrol","diesel","electric","hybrid"]
+const FUEL_TYPES = ["petrol", "diesel", "electric", "hybrid"]
 
-const ALERT_TYPES = {
-  INFO: 'info',
-  WARNING: 'warning',
-  CRITICAL: 'critical',
+const ALERT_SEVERITIES = {
+  LOW: 'low',
+  MEDIUM: 'medium',
+  HIGH: 'high',
 }
 
 const DELIVERY_STATUS = ["scheduled", "in-transit", "delivered", "failed"]
@@ -35,6 +41,6 @@ module.exports = {
   VEHICLE_TYPES,
   FUEL_TYPES,
   ALERT_STATUS,
-  ALERT_TYPES,
+  ALERT_SEVERITIES,
   DELIVERY_STATUS
 }

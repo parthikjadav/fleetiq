@@ -22,15 +22,39 @@ const fleetSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    name: {
-        type: String,
-        required: true
+    companyInfo: {
+        name: {
+            type: String,
+            required: true
+        },
+        address: {
+            street: {
+                type: String,
+                required: true
+            },
+            city: {
+                type: String,
+                required: true
+            },
+            state: {
+                type: String,
+                required: true
+            },
+            zip: {
+                type: String,
+                required: true
+            }
+        },
+        phone: {
+            type:Number,
+        },
+        industry: {
+            type: String,
+            required: true
+        },
+        location: LocationSchema,
     },
-    address: {
-        type: String,
-        required: true
-    },
-    location: LocationSchema,
+    
     defaultDeliveryZones: [LocationSchema]
 },{timestamps: true})
 
